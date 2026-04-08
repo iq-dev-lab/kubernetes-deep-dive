@@ -17,7 +17,7 @@ ReplicaSet Controller가 파드 수를 유지하기 위해 etcd를 어떻게 Wat
 [![GitHub](https://img.shields.io/badge/GitHub-dev--book--lab-181717?style=flat-square&logo=github)](https://github.com/dev-book-lab)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-1.29-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kubernetes.io/docs/)
 [![Kind](https://img.shields.io/badge/Kind-로컬_클러스터-326CE5?style=flat-square&logo=kubernetes&logoColor=white)](https://kind.sigs.k8s.io/)
-[![Docs](https://img.shields.io/badge/Docs-38개-blue?style=flat-square&logo=readthedocs&logoColor=white)](./README.md)
+[![Docs](https://img.shields.io/badge/Docs-38개-blue?style=flat-square&logo=readthedocs&logoColor=white)](https://github.com/dev-book-lab/kubernetes-deep-dive)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square&logo=opensourceinitiative&logoColor=white)](./LICENSE)
 
 </div>
@@ -96,7 +96,7 @@ ReplicaSet Controller가 파드 수를 유지하기 위해 etcd를 어떻게 Wat
 | [01. 파드 생성 전 과정 — kubectl부터 컨테이너 시작까지](./pod-lifecycle/01-pod-creation-full-flow.md) | `kubectl apply` → API Server(인증/인가/Admission) → etcd 저장(nodeName="") → Scheduler Watch → Filtering/Scoring → Bind(nodeName="worker-1") → kubelet Watch → 이미지 Pull → CNI → containerd → runc → 상태 업데이트까지 각 단계의 실제 동작과 `kubectl get events`로 타임라인 추적 |
 | [02. 파드 스케줄링 알고리즘 — Filtering과 Scoring](./pod-lifecycle/02-scheduling-algorithm.md) | Filtering(Predicates) 단계에서 부적합 노드를 제거하는 기준(리소스 부족 / Taint / NodeAffinity / PodAntiAffinity), Scoring(Priorities) 단계에서 LeastAllocated / InterPodAffinity 등으로 점수를 계산해 최적 노드를 선택하는 알고리즘, `kubectl describe pod`의 Events에서 스케줄링 결정 추적 |
 | [03. 컨테이너 런타임 — containerd와 OCI 스펙](./pod-lifecycle/03-container-runtime.md) | kubelet → CRI gRPC → containerd → containerd-shim → runc 호출 체계, OCI Runtime Spec(config.json)이 컨테이너의 namespace / cgroups / mount를 정의하는 방식, `crictl ps`와 `crictl inspect`로 containerd 레벨에서 컨테이너 상태 확인 |
-| [04. 파드 종료 — SIGTERM과 graceful shutdown](./pod-lifecycle/04-pod-termination.md) | `kubectl delete pod` → SIGTERM 전달 → terminationGracePeriodSeconds 대기 → SIGKILL 순서, preStop Hook이 SIGTERM 이전에 실행되는 이유, Readiness Probe 실패로 엔드포인트에서 제거된 후 SIGTERM을 받아야 연결이 끊기지 않는 원리 |
+| [04. 파드 종료 — SIGTERM과 graceful shutdown](./pod-lifecycle/04-pod-termination.md) | `kubectl delete pod` → DeletionTimestamp 설정 → preStop Hook 실행 → SIGTERM 전달 → terminationGracePeriodSeconds 대기 → SIGKILL 순서, preStop Hook에서 `sleep`으로 iptables 전파 지연을 기다려야 in-flight 요청이 끊기지 않는 이유, `terminationGracePeriodSeconds`가 preStop 실행 시간을 포함해 계산된다는 주의사항 |
 | [05. Init Container와 Sidecar 패턴](./pod-lifecycle/05-init-container-sidecar.md) | Init Container가 순서대로 실행 완료되어야 메인 컨테이너가 시작되는 보장 메커니즘, Sidecar(Envoy Proxy / Fluentd)가 파드 네트워크 네임스페이스를 공유해 트래픽을 가로채는 방식, Kubernetes 1.29에서 정식 도입된 Sidecar Container 개념과 기존 방식과의 차이 |
 
 </details>
@@ -138,7 +138,7 @@ ReplicaSet Controller가 파드 수를 유지하기 위해 etcd를 어떻게 Wat
 | 문서 | 다루는 내용 |
 |------|------------|
 | [01. Volume과 파드 — emptyDir부터 configMap까지](./storage/01-volumes.md) | emptyDir(파드 수명과 동일한 임시 스토리지, tmpfs 옵션으로 메모리에 저장) / hostPath(노드 파일시스템 직접 마운트, 보안 위험) / configMap / secret이 각각 kubelet에 의해 어떻게 마운트되는지, 컨테이너 재시작 vs 파드 재시작 시 데이터 유지 여부 차이 |
-| [02. PV와 PVC — 동적 프로비저닝](./storage/02-pv-pvc-storageclass.md) | PVC가 StorageClass를 통해 클라우드 디스크를 자동 생성(동적 프로비저닝)하는 과정, PV-PVC Binding 알고리즘(용량 / AccessMode / StorageClass 매칭), PV의 Reclaim Policy(Retain / Delete / Recycle)가 PVC 삭제 시 디스크에 미치는 영향, `kubectl get pv`로 바인딩 상태 확인 |
+| [02. PV와 PVC — 동적 프로비저닝](./storage/02-pv-pvc-storageclass.md) | PVC가 StorageClass를 통해 클라우드 디스크를 자동 생성(동적 프로비저닝)하는 과정, PV-PVC Binding 알고리즘(용량 / AccessMode / StorageClass 매칭), PV의 Reclaim Policy(Retain / Delete)가 PVC 삭제 시 디스크에 미치는 영향(`Retain`은 PVC 삭제 후에도 디스크 보존, `Delete`는 즉시 삭제), `kubectl get pv`로 바인딩 상태 확인 |
 | [03. CSI — 스토리지 드라이버 표준 인터페이스](./storage/03-csi.md) | CSI(Container Storage Interface)가 등장하기 전 in-tree 플러그인의 문제점(커널 릴리즈 의존성), CSI Driver가 Controller Plugin(볼륨 생성/삭제)과 Node Plugin(Attach/Mount)으로 분리되는 구조, kubelet이 CSI Node Plugin을 호출해 볼륨을 노드에 마운트하는 단계별 과정 |
 | [04. StatefulSet — 순서 보장과 안정적 네트워크 ID](./storage/04-statefulset.md) | StatefulSet이 파드를 순서대로 생성/삭제하는 보장 메커니즘(`pod-0` → `pod-1` → `pod-2`), Headless Service로 `pod-0.<service>.<namespace>.svc.cluster.local` 형식의 안정적 DNS를 제공하는 방식, `volumeClaimTemplates`로 각 파드가 고유한 PVC를 갖는 원리, 파드 재생성 후 동일 PVC에 재연결되는 과정 |
 | [05. 스토리지 성능 고려사항](./storage/05-storage-performance.md) | ReadWriteOnce(단일 노드 읽기/쓰기) vs ReadWriteMany(다중 노드 읽기/쓰기) AccessMode의 실제 제약, 로컬 PV(노드 디스크 직접 사용)와 원격 스토리지(NFS / EBS)의 latency 차이, 데이터베이스를 쿠버네티스에서 운영할 때의 트레이드오프(StatefulSet + 로컬 PV vs 관리형 RDS) |
@@ -183,7 +183,7 @@ ReplicaSet Controller가 파드 수를 유지하기 위해 etcd를 어떻게 Wat
 | [02. 무중단 배포 — Probe와 Hook의 삼각편대](./deployment-operations/02-zero-downtime-deploy.md) | 파드 종료 시 Readiness Probe 실패 → 엔드포인트 제거 → SIGTERM 전달 순서가 보장되지 않으면 in-flight 요청이 끊기는 이유, preStop Hook에서 `sleep`으로 엔드포인트 제거 전파를 기다리는 패턴, `terminationGracePeriodSeconds`가 preStop Hook 실행 시간을 포함한다는 주의사항 |
 | [03. RBAC — 최소 권한 원칙 구현](./deployment-operations/03-rbac.md) | Role(네임스페이스 범위) / ClusterRole(클러스터 범위) / RoleBinding / ClusterRoleBinding 계층 구조, ServiceAccount가 Pod에 마운트된 토큰으로 API Server에 인증하는 방식, `kubectl auth can-i`로 권한 확인, 최소 권한 원칙 적용 시 흔히 빠지는 함정 |
 | [04. ConfigMap과 Secret — 설정 분리의 원리](./deployment-operations/04-configmap-secret.md) | 환경변수 주입과 파일 마운트 방식의 차이(파일 마운트는 ConfigMap 변경 시 자동 반영, 환경변수는 파드 재시작 필요), Secret이 Base64이지 암호화가 아닌 이유(etcd 암호화 설정 별도), Sealed Secret / External Secrets Operator로 GitOps 환경에서 시크릿을 안전하게 관리하는 방법 |
-| [05. 모니터링과 로깅 — Prometheus와 Loki 파이프라인](./deployment-operations/05-monitoring-logging.md) | Prometheus Operator가 ServiceMonitor 리소스로 스크랩 대상을 동적으로 관리하는 방식, `kubectl top pod`이 Metrics Server → API Server aggregation layer → HPA Controller로 연결되는 경로, Loki가 파드 레이블을 기반으로 로그를 수집하는 방식, 로그 레벨 별 비용 트레이드오프 |
+| [05. 모니터링과 로깅 — Prometheus와 Loki 파이프라인](./deployment-operations/05-monitoring-logging.md) | Prometheus Operator가 ServiceMonitor 리소스로 스크랩 대상을 동적으로 관리하는 방식, `kubectl top pod`과 HPA Controller가 동일한 Metrics Server → metrics.k8s.io API를 각각 독립적으로 사용하는 구조, Loki가 파드 레이블을 기반으로 로그를 수집하는 방식, 로그 레벨 별 비용 트레이드오프 |
 
 </details>
 
@@ -223,7 +223,7 @@ nodes:
   - role: worker
   - role: worker
 networking:
-  disableDefaultCNI: false
+  disableDefaultCNI: false   # kindnet(기본 CNI) 사용 — Ch3-02 Flannel/Calico 실험 시 true로 변경 후 별도 CNI 설치 필요
   podSubnet: "10.244.0.0/16"
   serviceSubnet: "10.96.0.0/12"
 ```
@@ -272,7 +272,7 @@ kubectl exec -it <source-pod> -- curl <target-pod-ip>:<port>
 | 섹션 | 설명 |
 |------|------|
 | 🎯 **핵심 질문** | 이 문서를 읽고 나면 답할 수 있는 질문 |
-| 🔍 **왜 이 개념이 중요한가** | 실무에서 마주치는 문제 상황과 이 개념의 연결 |
+| 🔍 **왜 이 개념이 실무에서 중요한가** | 실무에서 마주치는 문제 상황과 이 개념의 연결 |
 | 😱 **흔한 실수** | Before — 내부를 모를 때의 접근과 그 결과 |
 | ✨ **올바른 접근** | After — 원리를 알고 난 후의 설계/운영 |
 | 🔬 **내부 동작 원리** | 컴포넌트 소스 레벨 분석 + kubectl 이벤트 추적 |
