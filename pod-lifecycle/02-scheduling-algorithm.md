@@ -84,42 +84,42 @@
       │
       ▼
 ┌─────────────────────────────────────────┐
-│  Phase 1: Filtering (부적합 노드 제거)   │
-│                                          │
-│  모든 노드를 대상으로 아래 조건 순차 검사: │
-│  ① PodFitsResources: CPU/메모리 충분?   │
-│  ② PodFitsHost: nodeName 지정 시 일치?  │
-│  ③ PodFitsHostPorts: 포트 충돌 없음?    │
-│  ④ NoDiskConflict: 볼륨 충돌 없음?     │
-│  ⑤ NoVolumeZoneConflict: 볼륨 존 일치? │
-│  ⑥ TaintToleration: Taint 통과?        │
-│  ⑦ NodeAffinity: required 조건 충족?   │
-│  ⑧ PodAntiAffinity: required 충돌 없음?│
-│                                          │
-│  → 통과한 노드만 다음 단계로            │
+│  Phase 1: Filtering (부적합 노드 제거)      │
+│                                         │
+│  모든 노드를 대상으로 아래 조건 순차 검사:        │
+│  ① PodFitsResources: CPU/메모리 충분?     │
+│  ② PodFitsHost: nodeName 지정 시 일치?    │
+│  ③ PodFitsHostPorts: 포트 충돌 없음?       │
+│  ④ NoDiskConflict: 볼륨 충돌 없음?         │
+│  ⑤ NoVolumeZoneConflict: 볼륨 존 일치?     │
+│  ⑥ TaintToleration: Taint 통과?          │
+│  ⑦ NodeAffinity: required 조건 충족?      │
+│  ⑧ PodAntiAffinity: required 충돌 없음?   │
+│                                         │
+│  → 통과한 노드만 다음 단계로                  │
 └─────────────────────┬───────────────────┘
                        │ 통과 노드 목록
       ┌────────────────▼────────────────────┐
-      │  Phase 2: Scoring (최적 노드 선택)   │
-      │                                      │
-      │  각 플러그인이 0~100 점수 부여:       │
-      │  ① LeastAllocated: 리소스 여유 많은  │
-      │     노드일수록 고점                  │
-      │  ② BalancedAllocation: CPU/메모리   │
-      │     비율 균형 맞는 노드 고점         │
-      │  ③ ImageLocality: 이미지가 이미       │
-      │     있는 노드 고점                   │
+      │  Phase 2: Scoring (최적 노드 선택)     │
+      │                                     │
+      │  각 플러그인이 0~100 점수 부여:           │
+      │  ① LeastAllocated: 리소스 여유 많은     │
+      │     노드일수록 고점                     │
+      │  ② BalancedAllocation: CPU/메모리     │
+      │     비율 균형 맞는 노드 고점              │
+      │  ③ ImageLocality: 이미지가 이미         │
+      │     있는 노드 고점                       │
       │  ④ InterPodAffinity: preferred       │
-      │     Affinity 조건 만족 시 가산점     │
-      │  ⑤ NodeAffinity: preferred 조건      │
-      │     만족 시 가산점                   │
+      │     Affinity 조건 만족 시 가산점          │
+      │  ⑤ NodeAffinity: preferred 조건       │
+      │     만족 시 가산점                      │
       │                                      │
-      │  → 총점 최고 노드 선택              │
-      │    동점 시 무작위 선택              │
+      │  → 총점 최고 노드 선택                    │
+      │    동점 시 무작위 선택                    │
       └─────────────────┬────────────────────┘
-                         │
-                         ▼
-                    Bind (nodeName 업데이트)
+                        │
+                        ▼
+              Bind (nodeName 업데이트)
 ```
 
 ### Filtering 주요 플러그인 상세

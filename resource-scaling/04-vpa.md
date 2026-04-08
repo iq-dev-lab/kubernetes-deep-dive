@@ -76,22 +76,22 @@ VPA 아키텍처:
 
 ┌─────────────────┐   HistogramCheckpoint      ┌──────────────────┐
 │  VPA Recommender│ ─────────────────────────► │ VPA Admission    │
-│                 │                             │ Controller       │
-│  과거 사용량 분석 │                             │ (MutatingWebhook)│
-│  권고값 계산    │                             │                  │
-│  VPA 오브젝트   │                             │ 파드 생성 시      │
-│  status 업데이트│                             │ spec 수정        │
+│                 │                            │ Controller       │
+│  과거 사용량 분석   │                            │ (MutatingWebhook)│
+│  권고값 계산       │                            │                  │
+│  VPA 오브젝트     │                             │ 파드 생성 시       │
+│  status 업데이트  │                             │ spec 수정         │
 └────────┬────────┘                             └──────────────────┘
          │ recommended Request/Limit
          ▼
 ┌─────────────────┐
 │  VPA Updater    │
 │                 │
-│ Auto 모드 시     │
-│ 권고값 범위 벗어난│
-│ 파드 종료 (Evict)│
-│ → 재생성 시 AC가 │
-│   새 값으로 설정 │
+│ Auto 모드 시      │
+│ 권고값 범위 벗어난   │
+│ 파드 종료 (Evict) │
+│ → 재생성 시 AC가   │
+│   새 값으로 설정   │
 └─────────────────┘
 ```
 

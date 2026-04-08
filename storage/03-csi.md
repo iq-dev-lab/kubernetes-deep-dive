@@ -101,31 +101,31 @@ CSI 드라이버는 두 개의 컴포넌트로 구성된다.
 ```
 ┌──────────────────────────────────────────────────────┐
 │  Controller Plugin (Deployment 또는 StatefulSet)      │
-│  → 클러스터당 1~몇 개 실행                             │
-│                                                        │
+│  → 클러스터당 1~몇 개 실행                                │
+│                                                      │
 │  담당 작업:                                            │
-│    CreateVolume()           → 볼륨(디스크) 생성       │
-│    DeleteVolume()           → 볼륨 삭제               │
-│    ControllerPublishVolume() → 볼륨을 노드에 Attach   │
-│    ControllerUnpublishVolume() → 노드에서 Detach      │
-│    CreateSnapshot()         → 볼륨 스냅샷             │
-│                                                        │
+│    CreateVolume()           → 볼륨(디스크) 생성          │
+│    DeleteVolume()           → 볼륨 삭제                │
+│    ControllerPublishVolume() → 볼륨을 노드에 Attach     │
+│    ControllerUnpublishVolume() → 노드에서 Detach       │
+│    CreateSnapshot()         → 볼륨 스냅샷              │
+│                                                      │
 │  Sidecar들 (External Provisioner, Attacher 등):       │
-│    쿠버네티스 API를 Watch해 Controller Plugin 호출    │
+│    쿠버네티스 API를 Watch해 Controller Plugin 호출        │
 └──────────────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────────────┐
-│  Node Plugin (DaemonSet — 모든 노드에 실행)           │
-│                                                        │
+│  Node Plugin (DaemonSet — 모든 노드에 실행)              │
+│                                                      │
 │  담당 작업:                                            │
-│    NodeStageVolume()   → 노드에 볼륨 마운트 준비      │
-│                           (파일시스템 포맷/마운트)     │
-│    NodePublishVolume() → 파드 경로에 bind mount       │
+│    NodeStageVolume()   → 노드에 볼륨 마운트 준비          │
+│                           (파일시스템 포맷/마운트)        │
+│    NodePublishVolume() → 파드 경로에 bind mount         │
 │    NodeUnpublishVolume() → bind mount 해제            │
-│    NodeUnstageVolume() → 노드 마운트 해제             │
-│                                                        │
-│  kubelet이 gRPC로 직접 호출                           │
-│  Unix Socket: /var/lib/kubelet/plugins/<driver>/      │
+│    NodeUnstageVolume() → 노드 마운트 해제                │
+│                                                      │
+│  kubelet이 gRPC로 직접 호출                             │
+│  Unix Socket: /var/lib/kubelet/plugins/<driver>/     │
 └──────────────────────────────────────────────────────┘
 ```
 

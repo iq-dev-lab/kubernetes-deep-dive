@@ -83,41 +83,41 @@ kubectl apply -f pod.yaml
       ▼ HTTPS POST /api/v1/namespaces/default/pods
 ┌─────────────────────────────────────────────────┐
 │  1. API Server                                  │
-│     인증 → 인가(RBAC) → Admission Controller   │
-│     → etcd에 Pod 오브젝트 저장                  │
-│       spec.nodeName = ""  (미배정 상태)          │
+│     인증 → 인가(RBAC) → Admission Controller      │
+│     → etcd에 Pod 오브젝트 저장                      │
+│       spec.nodeName = ""  (미배정 상태)            │
 └──────────────────────┬──────────────────────────┘
                        │ Watch 이벤트 (ADDED)
       ┌────────────────▼────────────────┐
       │  2. Scheduler                   │
-      │     nodeName=""인 파드 감지      │
+      │     nodeName=""인 파드 감지        │
       │     Filtering → Scoring         │
-      │     → API Server에 Bind 요청    │
+      │     → API Server에 Bind 요청      │
       │       PATCH spec.nodeName       │
       │       = "worker-1"              │
       └────────────────┬────────────────┘
                        │ Watch 이벤트 (MODIFIED, nodeName 변경)
       ┌────────────────▼────────────────┐
       │  3. worker-1의 kubelet           │
-      │     자기 노드(worker-1) 파드 감지 │
-      │     → 이미지 Pull 요청           │
-      │     → CNI 플러그인 호출 (IP 할당) │
-      │     → containerd에 실행 요청     │
+      │     자기 노드(worker-1) 파드 감지    │
+      │     → 이미지 Pull 요청             │
+      │     → CNI 플러그인 호출 (IP 할당)    │
+      │     → containerd에 실행 요청       │
       └────────────────┬────────────────┘
                        │
       ┌────────────────▼────────────────┐
       │  4. containerd                  │
-      │     containerd-shim 생성        │
-      │     → runc으로 컨테이너 실행    │
-      │     → namespace/cgroups 설정    │
+      │     containerd-shim 생성         │
+      │     → runc으로 컨테이너 실행        │
+      │     → namespace/cgroups 설정     │
       └────────────────┬────────────────┘
                        │
       ┌────────────────▼────────────────┐
-      │  5. 상태 업데이트               │
+      │  5. 상태 업데이트                  │
       │     kubelet → API Server        │
       │       Pod status = Running      │
-      │     kube-proxy → iptables 규칙  │
-      │       새 파드 IP 반영           │
+      │     kube-proxy → iptables 규칙   │
+      │       새 파드 IP 반영              │
       └─────────────────────────────────┘
 ```
 

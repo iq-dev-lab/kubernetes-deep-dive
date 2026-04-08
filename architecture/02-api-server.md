@@ -71,32 +71,32 @@ kubectl apply -f pod.yaml
       │
       ▼ HTTPS 요청
 ┌─────────────────────────────────────────┐
-│             API Server                   │
-│                                          │
+│             API Server                  │
+│                                         │
 │  1. 인증 (Authentication)                │
-│     ├── X.509 클라이언트 인증서           │
-│     ├── Bearer Token (ServiceAccount)    │
-│     ├── OIDC (OpenID Connect)            │
+│     ├── X.509 클라이언트 인증서             │
+│     ├── Bearer Token (ServiceAccount)   │
+│     ├── OIDC (OpenID Connect)           │
 │     └── Webhook 인증                     │
 │                   │ 실패: 401            │
-│                   ▼                      │
+│                   ▼                     │
 │  2. 인가 (Authorization)                 │
 │     ├── RBAC: Role/ClusterRole 확인      │
-│     ├── ABAC (거의 사용 안 함)           │
+│     ├── ABAC (거의 사용 안 함)             │
 │     └── Webhook 인가                     │
 │                   │ 실패: 403            │
-│                   ▼                      │
-│  3. Admission Controller                 │
+│                   ▼                     │
+│  3. Admission Controller                │
 │     ├── Mutating Webhook (수정)          │
-│     │   예) Istio Sidecar 주입,          │
-│     │       기본 리소스 한도 주입         │
-│     ├── 오브젝트 스키마 유효성 검사       │
+│     │   예) Istio Sidecar 주입,           │
+│     │       기본 리소스 한도 주입            │
+│     ├── 오브젝트 스키마 유효성 검사            │
 │     └── Validating Webhook (검증)        │
 │         예) PodSecurity, OPA Gatekeeper  │
-│                   │ 실패: 거부 메시지    │
-│                   ▼                      │
-│  4. etcd에 저장                          │
-│     └── 성공: 201 Created               │
+│                   │ 실패: 거부 메시지       │
+│                   ▼                     │
+│  4. etcd에 저장                           │
+│     └── 성공: 201 Created                │
 └─────────────────────────────────────────┘
 ```
 
