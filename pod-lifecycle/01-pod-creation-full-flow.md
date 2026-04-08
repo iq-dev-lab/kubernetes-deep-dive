@@ -405,6 +405,6 @@ Scheduler는 내부적으로 스케줄링 큐를 유지한다. 100개의 파드 
 
 <div align="center">
 
-**[⬅️ 이전: Chapter 1 — 클러스터 부트스트랩](../architecture/06-cluster-bootstrap.md)** | **[홈으로 🏠](../README.md)** | **[다음: 파드 스케줄링 알고리즘 — Filtering과 Scoring ➡️](./02-scheduling-algorithm.md)**
+**[홈으로 🏠](../README.md)** | **[다음: 파드 스케줄링 알고리즘 — Filtering과 Scoring ➡️](./02-scheduling-algorithm.md)**
 
 </div>

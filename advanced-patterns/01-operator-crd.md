@@ -393,6 +393,6 @@ CRD에 status subresource가 활성화된 경우, spec과 status는 별도의 AP
 
 <div align="center">
 
-**[⬅️ 이전: Chapter 6 — 모니터링과 로깅](../deployment-operations/05-monitoring-logging.md)** | **[홈으로 🏠](../README.md)** | **[다음: Admission Webhook — 리소스 생성/수정 인터셉트 ➡️](./02-admission-webhook.md)**
+**[홈으로 🏠](../README.md)** | **[다음: Admission Webhook — 리소스 생성/수정 인터셉트 ➡️](./02-admission-webhook.md)**
 
 </div>
