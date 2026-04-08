@@ -359,5 +359,8 @@ etcd snapshot 저장 시 디스크 I/O가 일시적으로 증가하면 WAL fsync
 
 ---
 
-> ⬅️ 이전: [03. Service Mesh — Istio와 Envoy Sidecar](./03-service-mesh-istio.md)  
-> ➡️ 다음: [05. 멀티 클러스터 운영 — 네트워킹과 트래픽 라우팅](./05-multi-cluster.md)
+<div align="center">
+
+**[⬅️ 이전: Service Mesh — Istio와 Envoy Sidecar](./03-service-mesh-istio.md)** | **[홈으로 🏠](../README.md)** | **[다음: 멀티 클러스터 운영 — 네트워킹과 트래픽 라우팅 ➡️](./05-multi-cluster.md)**
+
+</div>

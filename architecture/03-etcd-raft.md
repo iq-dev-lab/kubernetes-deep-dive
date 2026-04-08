@@ -355,5 +355,8 @@ etcd에는 Secret 오브젝트도 저장된다. Secret의 값은 Base64 인코�
 
 ---
 
-> ⬅️ 이전: [02. API Server](./02-api-server.md)  
-> ➡️ 다음: [04. Controller Manager — Reconciliation Loop의 실체](./04-controller-manager-reconciliation.md)
+<div align="center">
+
+**[⬅️ 이전: API Server — 모든 요청의 진입점](./02-api-server.md)** | **[홈으로 🏠](../README.md)** | **[다음: Controller Manager — Reconciliation Loop의 실체 ➡️](./04-controller-manager-reconciliation.md)**
+
+</div>

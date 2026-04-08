@@ -400,5 +400,8 @@ volumeClaimTemplates:
 
 ---
 
-> ⬅️ 이전: [03. CSI — 스토리지 드라이버 표준 인터페이스](./03-csi.md)  
-> ➡️ 다음: [05. 스토리지 성능 고려사항](./05-storage-performance.md)
+<div align="center">
+
+**[⬅️ 이전: CSI — 스토리지 드라이버 표준 인터페이스](./03-csi.md)** | **[홈으로 🏠](../README.md)** | **[다음: 스토리지 성능 고려사항 ➡️](./05-storage-performance.md)**
+
+</div>

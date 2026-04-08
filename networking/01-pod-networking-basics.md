@@ -362,5 +362,8 @@ veth pair:
 
 ---
 
-> ⬅️ 이전 챕터: [Ch2-05. Init Container와 Sidecar](../pod-lifecycle/05-init-container-sidecar.md)  
-> ➡️ 다음: [02. CNI — Flannel과 Calico 내부 동작](./02-cni-plugins.md)
+<div align="center">
+
+**[⬅️ 이전: Chapter 2 — Init Container와 Sidecar 패턴](../pod-lifecycle/05-init-container-sidecar.md)** | **[홈으로 🏠](../README.md)** | **[다음: CNI — Flannel과 Calico 내부 동작 ➡️](./02-cni-plugins.md)**
+
+</div>

@@ -361,5 +361,8 @@ Readiness Probe 없으면 컨테이너가 시작되는 순간 자동으로 Ready
 
 ---
 
-> ⬅️ 이전: [01. Deployment 롤링 업데이트](./01-rolling-update.md)  
-> ➡️ 다음: [03. RBAC — 최소 권한 원칙 구현](./03-rbac.md)
+<div align="center">
+
+**[⬅️ 이전: Deployment 롤링 업데이트 — ReplicaSet 교체 알고리즘](./01-rolling-update.md)** | **[홈으로 🏠](../README.md)** | **[다음: RBAC — 최소 권한 원칙 구현 ➡️](./03-rbac.md)**
+
+</div>

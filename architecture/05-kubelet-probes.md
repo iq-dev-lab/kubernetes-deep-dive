@@ -430,5 +430,8 @@ kubelet이 재시작되어도 이미 실행 중인 컨테이너는 계속 동작
 
 ---
 
-> ⬅️ 이전: [04. Controller Manager — Reconciliation Loop의 실체](./04-controller-manager-reconciliation.md)  
-> ➡️ 다음: [06. 클러스터 부트스트랩 — kubeadm과 Static Pod](./06-cluster-bootstrap.md)
+<div align="center">
+
+**[⬅️ 이전: Controller Manager — Reconciliation Loop의 실체](./04-controller-manager-reconciliation.md)** | **[홈으로 🏠](../README.md)** | **[다음: 클러스터 부트스트랩 — kubeadm과 Static Pod ➡️](./06-cluster-bootstrap.md)**
+
+</div>

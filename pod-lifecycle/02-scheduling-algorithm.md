@@ -451,5 +451,8 @@ Filtering 단계에서 PodAntiAffinity required 조건을 위반하므로 해당
 
 ---
 
-> ⬅️ 이전: [01. 파드 생성 전 과정](./01-pod-creation-full-flow.md)  
-> ➡️ 다음: [03. 컨테이너 런타임 — containerd와 OCI 스펙](./03-container-runtime.md)
+<div align="center">
+
+**[⬅️ 이전: 파드 생성 전 과정 — kubectl부터 컨테이너 시작까지](./01-pod-creation-full-flow.md)** | **[홈으로 🏠](../README.md)** | **[다음: 컨테이너 런타임 — containerd와 OCI 스펙 ➡️](./03-container-runtime.md)**
+
+</div>

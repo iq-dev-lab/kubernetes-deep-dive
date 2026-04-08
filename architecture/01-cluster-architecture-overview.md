@@ -382,4 +382,8 @@ API Server를 통해 읽는다. etcd에 직접 접근하는 컴포넌트는 API 
 
 ---
 
-> ➡️ 다음: [02. API Server — 모든 요청의 진입점](./02-api-server.md)
+<div align="center">
+
+**[홈으로 🏠](../README.md)** | **[다음: API Server — 모든 요청의 진입점 ➡️](./02-api-server.md)**
+
+</div>

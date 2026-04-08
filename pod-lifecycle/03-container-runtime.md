@@ -435,5 +435,8 @@ Kata Containers는 CRI를 구현한다. kubelet의 관점에서는 일반 contai
 
 ---
 
-> ⬅️ 이전: [02. 파드 스케줄링 알고리즘](./02-scheduling-algorithm.md)  
-> ➡️ 다음: [04. 파드 종료 — SIGTERM과 graceful shutdown](./04-pod-termination.md)
+<div align="center">
+
+**[⬅️ 이전: 파드 스케줄링 알고리즘 — Filtering과 Scoring](./02-scheduling-algorithm.md)** | **[홈으로 🏠](../README.md)** | **[다음: 파드 종료 — SIGTERM과 graceful shutdown ➡️](./04-pod-termination.md)**
+
+</div>

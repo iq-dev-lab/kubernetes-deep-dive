@@ -428,5 +428,8 @@ CoreDNS Corefile에 조건부 포워딩을 추가한다. `kubectl edit configmap
 
 ---
 
-> ⬅️ 이전: [05. Ingress — L7 라우팅과 Nginx Controller](./05-ingress.md)  
-> ➡️ 다음: [07. Network Policy — 파드 간 트래픽 제어](./07-network-policy.md)
+<div align="center">
+
+**[⬅️ 이전: Ingress — L7 라우팅과 Nginx Controller](./05-ingress.md)** | **[홈으로 🏠](../README.md)** | **[다음: Network Policy — 파드 간 트래픽 제어 ➡️](./07-network-policy.md)**
+
+</div>

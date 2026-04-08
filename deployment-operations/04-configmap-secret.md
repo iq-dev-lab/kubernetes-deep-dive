@@ -372,5 +372,8 @@ RBAC으로 `secrets` 리소스의 `get`/`list` 권한을 제거하면 `kubectl g
 
 ---
 
-> ⬅️ 이전: [03. RBAC — 최소 권한 원칙 구현](./03-rbac.md)  
-> ➡️ 다음: [05. 모니터링과 로깅 — Prometheus와 Loki 파이프라인](./05-monitoring-logging.md)
+<div align="center">
+
+**[⬅️ 이전: RBAC — 최소 권한 원칙 구현](./03-rbac.md)** | **[홈으로 🏠](../README.md)** | **[다음: 모니터링과 로깅 — Prometheus와 Loki 파이프라인 ➡️](./05-monitoring-logging.md)**
+
+</div>

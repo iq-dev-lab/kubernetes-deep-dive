@@ -359,5 +359,8 @@ Endpoints 오브젝트가 비어있으므로 KUBE-SVC-xxx 체인에 KUBE-SEP-xxx
 
 ---
 
-> ⬅️ 이전: [02. CNI — Flannel과 Calico 내부 동작](./02-cni-plugins.md)  
-> ➡️ 다음: [04. Service 종류 완전 분해](./04-service-types.md)
+<div align="center">
+
+**[⬅️ 이전: CNI — Flannel과 Calico 내부 동작](./02-cni-plugins.md)** | **[홈으로 🏠](../README.md)** | **[다음: Service 종류 완전 분해 ➡️](./04-service-types.md)**
+
+</div>

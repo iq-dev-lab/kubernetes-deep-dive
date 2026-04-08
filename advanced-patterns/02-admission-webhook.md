@@ -440,5 +440,8 @@ Webhook 서버 파드가 롤링 업데이트 중이면 잠깐 Webhook 서버가 
 
 ---
 
-> ⬅️ 이전: [01. Operator 패턴 — CRD와 Reconciliation Loop](./01-operator-crd.md)  
-> ➡️ 다음: [03. Service Mesh — Istio와 Envoy Sidecar](./03-service-mesh-istio.md)
+<div align="center">
+
+**[⬅️ 이전: Operator 패턴 — CRD와 Reconciliation Loop](./01-operator-crd.md)** | **[홈으로 🏠](../README.md)** | **[다음: Service Mesh — Istio와 Envoy Sidecar ➡️](./03-service-mesh-istio.md)**
+
+</div>

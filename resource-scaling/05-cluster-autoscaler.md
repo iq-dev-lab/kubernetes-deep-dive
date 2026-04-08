@@ -380,5 +380,8 @@ CA는 Expander 전략에 따라 노드 그룹을 선택한다. 기본 전략은 
 
 ---
 
-> ⬅️ 이전: [04. VPA — Request/Limit 자동 조정](./04-vpa.md)  
-> ➡️ 다음 챕터: [Ch6-01. Deployment 전략 — RollingUpdate와 Recreate](../deployment-operations/01-deployment-strategies.md)
+<div align="center">
+
+**[⬅️ 이전: VPA — Request/Limit 자동 조정](./04-vpa.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 6 — Deployment 롤링 업데이트 ➡️](../deployment-operations/01-rolling-update.md)**
+
+</div>

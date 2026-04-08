@@ -438,5 +438,8 @@ secret = tmpfs:
 
 ---
 
-> ⬅️ 이전 챕터: [Ch3-07. Network Policy](../networking/07-network-policy.md)  
-> ➡️ 다음: [02. PV와 PVC — 동적 프로비저닝](./02-pv-pvc-storageclass.md)
+<div align="center">
+
+**[⬅️ 이전: Chapter 3 — Network Policy](../networking/07-network-policy.md)** | **[홈으로 🏠](../README.md)** | **[다음: PV와 PVC — 동적 프로비저닝 ➡️](./02-pv-pvc-storageclass.md)**
+
+</div>

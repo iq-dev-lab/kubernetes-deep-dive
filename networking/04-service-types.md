@@ -438,5 +438,8 @@ DNS 캐시 TTL 동안은 캐시된 ClusterIP를 사용할 수 있지만, iptable
 
 ---
 
-> ⬅️ 이전: [03. Service와 kube-proxy — iptables 규칙 생성](./03-service-kube-proxy.md)  
-> ➡️ 다음: [05. Ingress — L7 라우팅과 Nginx Controller](./05-ingress.md)
+<div align="center">
+
+**[⬅️ 이전: Service와 kube-proxy — iptables 규칙 생성](./03-service-kube-proxy.md)** | **[홈으로 🏠](../README.md)** | **[다음: Ingress — L7 라우팅과 Nginx Controller ➡️](./05-ingress.md)**
+
+</div>

@@ -419,5 +419,8 @@ Spring Boot 2.3+의 `server.shutdown=graceful` 설정은 SIGTERM 수신 시 새 
 
 ---
 
-> ⬅️ 이전: [03. 컨테이너 런타임 — containerd와 OCI 스펙](./03-container-runtime.md)  
-> ➡️ 다음: [05. Init Container와 Sidecar 패턴](./05-init-container-sidecar.md)
+<div align="center">
+
+**[⬅️ 이전: 컨테이너 런타임 — containerd와 OCI 스펙](./03-container-runtime.md)** | **[홈으로 🏠](../README.md)** | **[다음: Init Container와 Sidecar 패턴 ➡️](./05-init-container-sidecar.md)**
+
+</div>

@@ -512,5 +512,8 @@ CNI 구현체에 따라 다르다. Calico iptables 모드에서는 기존 연결
 
 ---
 
-> ⬅️ 이전: [06. CoreDNS — Service 이름 해석](./06-coredns.md)  
-> ➡️ 다음 챕터: [Ch4-01. PersistentVolume과 PVC](../storage/01-persistent-volume.md)
+<div align="center">
+
+**[⬅️ 이전: CoreDNS — Service 이름 해석](./06-coredns.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 4 — Volume과 파드 ➡️](../storage/01-volumes.md)**
+
+</div>

@@ -381,5 +381,8 @@ Mutating Webhook은 병렬로 호출되는 것이 기본이 아니다. `reinvoca
 
 ---
 
-> ⬅️ 이전: [01. 클러스터 아키텍처 개요](./01-cluster-architecture-overview.md)  
-> ➡️ 다음: [03. etcd와 Raft 합의 알고리즘](./03-etcd-raft.md)
+<div align="center">
+
+**[⬅️ 이전: 클러스터 아키텍처 개요 — Control Plane vs Data Plane](./01-cluster-architecture-overview.md)** | **[홈으로 🏠](../README.md)** | **[다음: etcd와 Raft 합의 알고리즘 ➡️](./03-etcd-raft.md)**
+
+</div>

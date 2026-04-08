@@ -428,5 +428,8 @@ Kubernetes 1.29 Sidecar:
 
 ---
 
-> ⬅️ 이전: [04. 파드 종료 — SIGTERM과 graceful shutdown](./04-pod-termination.md)  
-> ➡️ 다음 챕터: [Ch3-01. 파드 네트워킹 기초](../networking/01-pod-networking-basics.md)
+<div align="center">
+
+**[⬅️ 이전: 파드 종료 — SIGTERM과 graceful shutdown](./04-pod-termination.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 3 — 파드 네트워킹 기초 ➡️](../networking/01-pod-networking-basics.md)**
+
+</div>

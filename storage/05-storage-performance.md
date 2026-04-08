@@ -416,5 +416,8 @@ etcd는 Raft Log Commit에 fsync가 필수적이며, fsync 지연이 Raft 성능
 
 ---
 
-> ⬅️ 이전: [04. StatefulSet — 순서 보장과 안정적 네트워크 ID](./04-statefulset.md)  
-> ➡️ 다음 챕터: [Ch5-01. Request와 Limit — cgroups 구현](../resource-scaling/01-request-limit-cgroups.md)
+<div align="center">
+
+**[⬅️ 이전: StatefulSet — 순서 보장과 안정적 네트워크 ID](./04-statefulset.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 5 — Request와 Limit ➡️](../resource-scaling/01-request-limit-cgroups.md)**
+
+</div>

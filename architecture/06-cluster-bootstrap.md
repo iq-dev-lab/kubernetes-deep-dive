@@ -437,5 +437,8 @@ HA 구성에서는 API Server들 앞에 로드밸런서를 둔다. kubeconfig의
 
 ---
 
-> ⬅️ 이전: [05. kubelet — 노드 에이전트와 Probe](./05-kubelet-probes.md)  
-> ➡️ 다음 챕터: [Ch2-01. 파드 생성 전 과정](../pod-lifecycle/01-pod-creation-full-flow.md)
+<div align="center">
+
+**[⬅️ 이전: kubelet — 노드 에이전트와 Probe](./05-kubelet-probes.md)** | **[홈으로 🏠](../README.md)** | **[다음: Chapter 2 — 파드 생성 전 과정 ➡️](../pod-lifecycle/01-pod-creation-full-flow.md)**
+
+</div>

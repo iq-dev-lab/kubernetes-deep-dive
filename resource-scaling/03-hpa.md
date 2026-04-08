@@ -375,5 +375,8 @@ HPA가 다음 평가 주기(15초)에 Deployment의 replicas를 다시 계산된
 
 ---
 
-> ⬅️ 이전: [02. QoS 클래스 — OOM 발생 시 파드 종료 순서](./02-qos-classes.md)  
-> ➡️ 다음: [04. VPA — Request/Limit 자동 조정](./04-vpa.md)
+<div align="center">
+
+**[⬅️ 이전: QoS 클래스 — OOM 발생 시 파드 종료 순서](./02-qos-classes.md)** | **[홈으로 🏠](../README.md)** | **[다음: VPA — Request/Limit 자동 조정 ➡️](./04-vpa.md)**
+
+</div>
