@@ -388,6 +388,6 @@ Made with ❤️ by [Dev Book Lab](https://github.com/dev-book-lab)
 
 <br/>
 
-*"kubectl apply로 파드를 배포하는 것과, Control Plane이 수천 개의 파드 상태를 어떻게 선언적으로 수렴시키는지 아는 것은 다르다"*
+**"kubectl apply로 파드를 배포하는 것과, Control Plane이 수천 개의 파드 상태를 어떻게 선언적으로 수렴시키는지 아는 것은 다르다"**
 
 </div>
